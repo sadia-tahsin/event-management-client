@@ -1,0 +1,23 @@
+.list-image-url {
+    list-style: none;
+    padding-left: 20px; /* Adjust the left padding as needed */
+  }
+
+  .list-image-url li {
+    padding-left: 20px; /* Adjust the left padding as needed */
+    position: relative;
+  }
+  .list-image-url li::before {
+    content: "";
+    background-image: url('src\lib\Gallery.css'); /* Replace 'checkmark.png' with the path to your image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 16px; /* Adjust the width of the image */
+    height: 16px; /* Adjust the height of the image */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -8px; /* Adjust the negative margin to vertically center the image */
+    margin-right: 8px; /* Adjust the margin between the image and the text */
+  }
