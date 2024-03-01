@@ -20,7 +20,7 @@
 //      }
 //   const { mutateAsync } = useMutation({ 
 //     mutationFn: async (data:EventData) => {
-//       return await fetch("http://localhost:3000/addEvent", {
+//       return await fetch("https://assignment5-server-roan.vercel.app/addEvent", {
 //         method: "POST",
 //         body: JSON.stringify(data),
 //         headers: {
@@ -135,7 +135,7 @@ const AddEvent = () => {
 
   const { mutateAsync } = useMutation({ 
     mutationFn: async (data) => {
-      return await fetch("http://localhost:3000/addEvent", {
+      return await fetch("https://assignment5-server-roan.vercel.app/addEvent", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

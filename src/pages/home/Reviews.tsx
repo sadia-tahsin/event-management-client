@@ -218,7 +218,7 @@ const Reviews = () => {
   return (
     <div className="my-20 ml-10">
       <div className="flex justify-between">
-        <h1 className="text-5xl font-extrabold mb-14">What Our Client Said about us</h1>
+        <h1 className="text-6xl font-extrabold mb-14">What Our Client Said about us</h1>
       
           <div className="hidden md:flex p-4 mx-6">
             <button className="bg-slate-200 rounded-full w-12 h-12 mr-4 justify-center" onClick={handlePrevSlide}>

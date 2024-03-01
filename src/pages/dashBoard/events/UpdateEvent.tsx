@@ -13,7 +13,7 @@
 //   const {id} = useParams()
 //   const { data, isLoading } = useQuery({
 //     queryKey: ["event",id], // Unique query key for the service data
-//     queryFn: () => fetch(`http://localhost:3000/events/${id}`).then((res) => res.json()),
+//     queryFn: () => fetch(`https://assignment5-server-roan.vercel.app/events/${id}`).then((res) => res.json()),
 //   });
 
 //   useEffect(() => {
@@ -28,7 +28,7 @@
 //     mutationFn: async (updatedData) => {
 //       try {
 //         console.log(updatedData);
-//         const response = await fetch(`http://localhost:3000/updateEvent/${id}`, {
+//         const response = await fetch(`https://assignment5-server-roan.vercel.app/updateEvent/${id}`, {
 //           method: "PUT",
 //           body: JSON.stringify(updatedData),
 //           headers: {
@@ -130,7 +130,7 @@ const UpdateEvent = () => {
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["event", id],
-    queryFn: () => fetch(`http://localhost:3000/events/${id}`).then((res) => {
+    queryFn: () => fetch(`https://assignment5-server-roan.vercel.app/events/${id}`).then((res) => {
       if (!res.ok) {
         throw new Error("Event not found");
       }
@@ -149,7 +149,7 @@ const UpdateEvent = () => {
           mutationFn: async (updatedData) => {
             try {
               console.log(updatedData);
-              const response = await fetch(`http://localhost:3000/updateEvent/${id}`, {
+              const response = await fetch(`https://assignment5-server-roan.vercel.app/updateEvent/${id}`, {
                 method: "PUT",
                 body: JSON.stringify(updatedData),
                 headers: {

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const EventItems = () => {
   const getEvents = async () => {
-    return await fetch("http://localhost:3000/events").then((res) =>
+    return await fetch("https://assignment5-server-roan.vercel.app/events").then((res) =>
       res.json()
     );
   };

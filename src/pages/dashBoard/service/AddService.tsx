@@ -24,7 +24,7 @@ const AddService = () => {
   }
   const { mutateAsync } = useMutation({ 
     mutationFn: async (data:ServiceData) => {
-      return await fetch("http://localhost:3000/addService", {
+      return await fetch("https://assignment5-server-roan.vercel.app/addService", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

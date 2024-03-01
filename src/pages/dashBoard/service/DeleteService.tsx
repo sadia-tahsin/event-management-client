@@ -14,7 +14,7 @@ const DeleteService = () => {
   const queryClient = useQueryClient();
 
   const getServices = async () => {
-    return await fetch("http://localhost:3000/services").then((res) => res.json());
+    return await fetch("https://assignment5-server-roan.vercel.app/services").then((res) => res.json());
   };
 
   const { data } = useQuery({
@@ -25,7 +25,7 @@ const DeleteService = () => {
 
   const { mutateAsync } = useMutation({ 
     mutationFn: async (id:string) => {
-      return await fetch(`http://localhost:3000/deleteService/${id}`, {
+      return await fetch(`https://assignment5-server-roan.vercel.app/deleteService/${id}`, {
         method: "DELETE",
       });
     },

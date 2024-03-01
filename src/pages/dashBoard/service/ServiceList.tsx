@@ -14,7 +14,7 @@
 // const ServiceList = () => {
 //   const queryClient = useQueryClient();
 //   const getServices = async () => {
-//     return await fetch("http://localhost:3000/services").then((res) =>
+//     return await fetch("https://assignment5-server-roan.vercel.app/services").then((res) =>
 //       res.json()
 //     );
 //   };
@@ -33,7 +33,7 @@
 
 //   const { mutateAsync } = useMutation({ 
 //     mutationFn: async (id:string) => {
-//       return await fetch(`http://localhost:3000/deleteService/${id}`, {
+//       return await fetch(`https://assignment5-server-roan.vercel.app/deleteService/${id}`, {
 //         method: "DELETE",
 //       });
 //     },
@@ -121,7 +121,7 @@ const ServiceList = () => {
   const queryClient = useQueryClient();
   
   const getServices = async () => {
-    return await fetch("http://localhost:3000/services").then((res) =>
+    return await fetch("https://assignment5-server-roan.vercel.app/services").then((res) =>
       res.json()
     );
   };
@@ -140,7 +140,7 @@ const ServiceList = () => {
 
   const { mutateAsync } = useMutation({ 
     mutationFn: async (id:string) => {
-      return await fetch(`http://localhost:3000/deleteService/${id}`, {
+      return await fetch(`https://assignment5-server-roan.vercel.app/deleteService/${id}`, {
         method: "DELETE",
       });
     },

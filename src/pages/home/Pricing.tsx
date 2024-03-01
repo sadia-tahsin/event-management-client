@@ -9,10 +9,10 @@ import listIcon from "@/assets/Group 16.png"
 const Pricing = () => {
   return (
     <Container className="my-16">
-      <h1 className="text-6xl font-extrabold text-center mb-4">
+      <h1 className="text-6xl font-extrabold text-center mb-4" style={{color:'rgba(6, 28, 61, 1)'}}>
         Explore our pricing plans
       </h1>
-      <p className="mb-16 text-center">
+      <p className="mb-16 text-center" style={{color:'rgba(86, 107, 132, 1)'}}>
         Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh
         ornare viverra. Ultrices faucibus neque velit risus ac id lorem.Ut
         posuere<br></br> felis arcu tellus tempus in in ultricies. Gravida id

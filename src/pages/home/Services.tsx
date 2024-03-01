@@ -16,7 +16,7 @@ const Services = () => {
   const opacityValues = useTransform(scrollYProgress, [0,0.7],[0.1,1])
   // const scaleValues = useTransform(scrollYProgress, [0,1],[0.9,1])
   const getServices = async () => {
-    return await fetch("http://localhost:3000/services").then((res) =>
+    return await fetch("https://assignment5-server-roan.vercel.app/services").then((res) =>
       res.json()
     );
   };

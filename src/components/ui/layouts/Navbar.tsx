@@ -12,7 +12,7 @@ const Navbar = () => {
     return (
         <div>
             <header className="h-16 mb-5">
-                <nav className="py-5 w-full h-full max-w-[1280px] mx-auto flex justify-between items-center px-[20px]">
+                <nav className="py-5 w-full h-full max-w-[1280px] mx-auto flex justify-between items-center px-[20px] font-roboto">
                     <span className="text-2xl font-extrabold">Event <span className="text-blue">360</span></span>
                     <div className="lg:hidden">
                         <button onClick={toggleMenu}>

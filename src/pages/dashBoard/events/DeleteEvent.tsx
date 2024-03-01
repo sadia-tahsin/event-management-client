@@ -14,7 +14,7 @@
 //   const queryClient = useQueryClient();
 
 //   const getEvents = async () => {
-//     return await fetch("http://localhost:3000/events").then((res) => res.json());
+//     return await fetch("https://assignment5-server-roan.vercel.app/events").then((res) => res.json());
 //   };
 
 //   const { data } = useQuery({
@@ -26,7 +26,7 @@
 //   const { mutateAsync } = useMutation({ 
 //     mutationFn: async (id:string) => {
 //       console.log(id)
-//       return await fetch(`http://localhost:3000/deleteEvent/${id}`, {
+//       return await fetch(`https://assignment5-server-roan.vercel.app/deleteEvent/${id}`, {
 //         method: "DELETE",
 //       });
 //     },
@@ -106,7 +106,7 @@ const DeleteEvent = () => {
   const queryClient = useQueryClient();
 
   const getEvents = async () => {
-    return await fetch("http://localhost:3000/events").then((res) => res.json());
+    return await fetch("https://assignment5-server-roan.vercel.app/events").then((res) => res.json());
   };
 
   const { data } = useQuery({
@@ -117,7 +117,7 @@ const DeleteEvent = () => {
   const { mutateAsync } = useMutation({
     mutationFn: async (id: string) => {
       console.log(id);
-      return await fetch(`http://localhost:3000/deleteEvent/${id}`, {
+      return await fetch(`https://assignment5-server-roan.vercel.app/deleteEvent/${id}`, {
         method: "DELETE",
       });
     },

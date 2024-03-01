@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const DashBoard = () => {
   const getServices = async () => {
-    return await fetch("http://localhost:3000/services").then((res) =>
+    return await fetch("https://assignment5-server-roan.vercel.app/services").then((res) =>
       res.json()
     );
   };
@@ -14,7 +14,7 @@ const DashBoard = () => {
   });
   
   // const getEvents = async () => {
-  //   return await fetch("http://localhost:3000/events").then((res) =>
+  //   return await fetch("https://assignment5-server-roan.vercel.app/events").then((res) =>
   //     res.json()
   //   );
   // };
@@ -31,10 +31,10 @@ const DashBoard = () => {
       <div className="mt-5 mx-auto col-span-10">
         <div className="mt-5">
           <h1 className="text-3xl font-bold text-center mb-4">
-            Our Services
+           Services
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mx-2">
             {data &&
               data.map(
                 (

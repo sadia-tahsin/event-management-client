@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const Recents = () => {
   const getRecentEvents = async () => {
-    return await fetch("http://localhost:3000/recentEvents").then((res) =>
+    return await fetch("https://assignment5-server-roan.vercel.app/recentEvents").then((res) =>
       res.json()
     );
   };

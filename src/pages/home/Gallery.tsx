@@ -14,7 +14,7 @@ const Gallery = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-28 mx-12 bg-[url('src\assets\Star.png')]">
       <div className="my-auto">
         <h2 className="text-7xl font-extrabold">Gallery</h2>
-        <p className="py-9">
+        <p className="py-9" style={{color:'rgba(86, 107, 132, 1)'}}>
           Ut posuere felis arcu tellus tempus in in ultricies. Gravida id nibh
           ornare viverra. Ultrices faucibus neque velit risus ac id lorem.Ut
           posuere felis arcu tellus tempus in in ultricies. Gravida id nibh

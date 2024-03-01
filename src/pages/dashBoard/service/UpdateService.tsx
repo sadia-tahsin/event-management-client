@@ -15,7 +15,7 @@ const UpdateService = () => {
   const {id} = useParams()
   const { data, isLoading } = useQuery({
     queryKey: ["service",id], // Unique query key for the service data
-    queryFn: () => fetch(`http://localhost:3000/services/${id}`).then((res) => res.json()),
+    queryFn: () => fetch(`https://assignment5-server-roan.vercel.app/services/${id}`).then((res) => res.json()),
   });
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const UpdateService = () => {
     mutationFn: async (updatedData) => {
       try {
         console.log(updatedData);
-        const response = await fetch(`http://localhost:3000/updateService/${id}`, {
+        const response = await fetch(`https://assignment5-server-roan.vercel.app/updateService/${id}`, {
           method: "PUT",
           body: JSON.stringify(updatedData),
           headers: {
