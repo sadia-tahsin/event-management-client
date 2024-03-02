@@ -6,19 +6,19 @@ import Swal from 'sweetalert2';
 const AddService = () => {
   const [formData, setFormData] = useState({
     name: "",
-    photo: "", 
+    Photo: "", 
     features: "",
     description: "",
   });
 
   const [errors, setErrors] = useState({
     name: "",
-    photo: "", 
+    Photo: "", 
     features: "",
   }); // Added state for form errors
   interface ServiceData {
     name: string;
-    photo: string;
+    Photo: string;
     features: string[];
     description?: string; // Optional field
   }
@@ -44,8 +44,8 @@ const AddService = () => {
       newErrors.name = "Name is required";
       formIsValid = false;
     }
-    if (!formData.photo.trim()) {
-      newErrors.photo = "Photo URL is required";
+    if (!formData.Photo.trim()) {
+      newErrors.Photo = "Photo URL is required";
       formIsValid = false;
     }
     if (!formData.features.trim()) {
@@ -65,7 +65,7 @@ const AddService = () => {
       await mutateAsync({ ...formData, features: featuresArray });
       setFormData({
         name: "",
-        photo: "",
+        Photo: "",
         features: "",
         description: "",
       });
@@ -88,53 +88,7 @@ const AddService = () => {
     }));
   };
 
-  // return (
-  //   <div className="grid grid-cols-12 bg-stone-100">
-  //     <Sidebar />
-  //     <div className="mt-5 ml-20 col-span-8 p-5">
-  //       <form onSubmit={handleSubmit} className="bg-sky-900 p-10 rounded border border-gray-300">
-  //       {errors.name && <span className="text-red-500">{errors.name}</span>} {/* Display name error message */}
-  //         <input
-  //           type="text"
-  //           name="name"
-  //           value={formData.name}
-  //           className="border-2 rounded m-2 p-2 border-sky-500 w-full"
-  //           placeholder="Service Name"
-  //           onChange={handleChange}
-  //         />
-  //          {errors.photo && <span className="text-red-500">{errors.photo}</span>} {/* Display photo error message */}
-        
-  //         <input
-  //           type="text"
-  //           name="photo" // Corrected name attribute
-  //           value={formData.photo}
-  //           className="border-2 rounded m-2 p-2 border-sky-500 w-full"
-  //           placeholder="Photo URL"
-  //           onChange={handleChange}
-  //         />
-  //         {errors.features && <span className="text-red-500">{errors.features}</span>} {/* Display features error message */}
-        
-  //          <textarea
-  //           name="features"
-  //           value={formData.features}
-  //           className="border-2 rounded m-2 p-2 border-sky-500 w-full h-32 resize-none"
-  //           placeholder="Features (one per line)"
-  //           onChange={handleChange}
-  //         ></textarea>
-  //           <textarea
-  //           name="description"
-  //           value={formData.description}
-  //           className="border-2 rounded m-2 p-2 border-sky-500 w-full h-32 resize-none"
-  //           placeholder="Description (optional)"
-  //           onChange={handleChange}
-  //         ></textarea>
-  //         <div className="text-center"> {/* Center the button horizontally */}
-  //           <Button type="submit">Submit</Button>
-  //         </div>
-  //       </form>
-  //     </div>
-  //   </div>
-  // );
+
 
   return (
     <div className="grid grid-cols-12 bg-stone-100">
@@ -152,11 +106,11 @@ const AddService = () => {
             placeholder="Enter Service Name"
             onChange={handleChange}
           />
-          {errors.photo && <span className="text-red-500">{errors.photo}</span>}
+          {errors.Photo && <span className="text-red-500">{errors.Photo}</span>}
           <input
             type="text"
-            name="photo"
-            value={formData.photo}
+            name="Photo"
+            value={formData.Photo}
             className="border border-gray-300 rounded-lg w-full px-4 py-2 mb-2"
             placeholder="Enter Photo URL"
             onChange={handleChange}
