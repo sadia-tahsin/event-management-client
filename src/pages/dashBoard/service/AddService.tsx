@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import Sidebar from "@/components/ui/layouts/Sidebar";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FormEvent, useState } from "react";
 import Swal from 'sweetalert2';
 const AddService = () => {
+  const queryClient = useQueryClient()
   const [formData, setFormData] = useState({
     name: "",
     Photo: "", 
@@ -32,6 +33,9 @@ const AddService = () => {
         },
       });
     },
+    onSuccess:()=>{
+      queryClient.invalidateQueries({queryKey:['services']})
+    }
   });
 
   const handleSubmit = async(e: FormEvent) => {

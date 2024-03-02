@@ -2,11 +2,12 @@
 // export default AddEvent;
 import { Button } from "@/components/ui/button";
 import Sidebar from "@/components/ui/layouts/Sidebar";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FormEvent, useState } from "react";
 import Swal from 'sweetalert2';
 
 const AddEvent = () => {
+  const queryClient = useQueryClient()
   const [formData, setFormData] = useState({
     name: "",
     photo: "", 
@@ -31,6 +32,9 @@ const AddEvent = () => {
         },
       });
     },
+    onSuccess:()=>{
+      queryClient.invalidateQueries({queryKey:['events']})
+    }
   });
 
   const handleSubmit = async(e: FormEvent) => {
@@ -71,7 +75,7 @@ const AddEvent = () => {
         text: 'One event has been added successfully.',
       });
     } catch (error) {
-      console.error("Error adding service:", error);
+      console.error("Error adding event:", error);
     }
   };
   
