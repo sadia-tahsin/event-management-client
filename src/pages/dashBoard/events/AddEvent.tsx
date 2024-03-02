@@ -16,9 +16,13 @@ const AddEvent = () => {
     name: "",
     photo: "", 
   });
-
+  interface eventData {
+    name: string;
+    photo: string;
+   
+  }
   const { mutateAsync } = useMutation({ 
-    mutationFn: async (data) => {
+    mutationFn: async (data:eventData) => {
       return await fetch("https://assignment5-server-roan.vercel.app/addEvent", {
         method: "POST",
         body: JSON.stringify(data),
@@ -52,7 +56,7 @@ const AddEvent = () => {
     }
   
     try {
-      await mutateAsync();
+      await mutateAsync({...formData});
       setFormData({
         name: "",
         photo: ""
