@@ -114,7 +114,7 @@ const UpdateService = () => {
       <h2 className="mt-4 mb-2 text-lg font-semibold text-white">Image URL:</h2>
       <input
         type="text"
-        name="photo"
+        name="Photo"
         value={formData.Photo}
         onChange={handleChange}
         placeholder={formData.Photo} // old data as placeholder
