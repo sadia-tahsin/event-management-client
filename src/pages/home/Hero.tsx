@@ -1,7 +1,6 @@
 import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import img from "@/assets/hero image.png";
-import img2 from "@/assets/Card.png";
 import icon1 from "@/assets/Icons (2).png";
 import icon2 from "@/assets/Icons.png";
 import icon3 from "@/assets/Icons (1).png";
@@ -38,16 +37,7 @@ const Hero = () => {
             >
               Brand New <br /> Event Packages
             </motion.h1>
-            <div
-              // style={{ 
-              //   backgroundImage: 'linear-gradient(to right, hsl(32, 100%, 50%), hsl(266, 99%, 60%))',
-              //   WebkitBackgroundClip: 'text',
-              //   WebkitTextFillColor: 'transparent',
-              //   backgroundClip: 'text',
-              //   color: 'transparent'
-              // }
-              // }
-            >
+            <div>
               <motion.h2
                 variants={introChildren}
                 className="text-4xl lg:text-5xl font-extrabold pt-2 

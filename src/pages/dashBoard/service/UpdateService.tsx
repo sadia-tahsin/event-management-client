@@ -3,30 +3,30 @@ import Sidebar from "@/components/ui/layouts/Sidebar";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { FormEvent, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateService = () => {
   const queryClient = useQueryClient();
   const [formData, setFormData] = useState({
     name: "",
     Photo: "",
-    features: [],
+    features: [""],
     description: "",
   });
   const {id} = useParams()
   const { data, isLoading } = useQuery({
-    queryKey: ["service",id], // Unique query key for the service data
+    queryKey: ["service",id], 
     queryFn: () => fetch(`https://assignment5-server-roan.vercel.app/services/${id}`).then((res) => res.json()),
   });
 
   useEffect(() => {
     if (data) {
-      // Populate form fields with existing data
       setFormData(data);
       console.log(formData)
     }
   }, [data]);
-
-  const { mutateAsync } = useMutation({
+  type formData = any
+  const { mutateAsync } = useMutation<void, Error, formData, any>({
     mutationFn: async (updatedData) => {
       try {
         console.log(updatedData);
@@ -37,24 +37,29 @@ const UpdateService = () => {
             "Content-Type": "application/json",
           },
         });
-        // Check if the response is successful
         if (!response.ok) {
           throw new Error("Failed to update service");
         }
-        // Return the data if successful
+        
         return response.json();
       } catch (err) {
-        // Throw the error to be caught by the onError callback
-        throw new Error(err.message);
+       
+        console.log(err)
       }
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["service"] });
-      // Optionally show success message
+        
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'One service has been updated successfully.',
+      });
+      
     },
     onError: (error) => {
       console.error("Error updating service:", error);
-      // Optionally show error message
+   
     },
   });
 
@@ -71,19 +76,22 @@ const UpdateService = () => {
     }));
   };
 
-  const handleDeleteFeature = (index) => {
+  const handleDeleteFeature = (index:number) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
       features: prevFormData.features.filter((_, i) => i !== index),
     }));
   };
 
-  const handleAddFeature = () => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      features: [...prevFormData.features, ""],
-    }));
+  const handleAddFeature = (e: FormEvent) => {
+    e.preventDefault();
+    const newFeature = formData.features.filter((feature) => feature.trim() !== ''); // Filter out empty strings
+    setFormData({
+      ...formData,
+      features: [...newFeature, ''], // Adds empty string at the end for adding more features
+    });
   };
+
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -99,7 +107,7 @@ const UpdateService = () => {
         name="name"
         value={formData.name}
         onChange={handleChange}
-        placeholder={formData.name} // Use old data as placeholder
+        placeholder={formData.name} // old data as placeholder
         className="border-2 rounded m-2 p-2 border-sky-500 w-full"
       />
       <br />
@@ -109,7 +117,7 @@ const UpdateService = () => {
         name="photo"
         value={formData.Photo}
         onChange={handleChange}
-        placeholder={formData.Photo} // Use old data as placeholder
+        placeholder={formData.Photo} // old data as placeholder
         className="border-2 rounded m-2 p-2 border-sky-500 w-full "
       />
       <br />

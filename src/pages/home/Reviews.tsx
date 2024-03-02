@@ -1,14 +1,17 @@
 import img from "@/assets/Ellipse 80 (1).png";
 import arrow1 from "@/assets/bi_arrow-left-short (1).png"
 import arrow2 from "@/assets/bi_arrow-left-short.png"
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { SetStateAction, useRef, useState } from "react";
+//import Swiper from 'swiper';
+
+import {useRef, useState } from "react";
+
 
 // const Reviews = () => {
 //   const swiperRef = useRef(null);
@@ -192,14 +195,17 @@ import { SetStateAction, useRef, useState } from "react";
 
 
 const Reviews = () => {
-  const swiperRef = useRef(null);
+  //const swiperRef = useRef(null);
+  type Swiper = any
+  const swiperRef = useRef<Swiper | null>(null);
+
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper:any) => {
     setActiveIndex(swiper.activeIndex);
   };
 
-  const getSlideBgColor = (index) => {
+  const getSlideBgColor = (index: number) => {
     return index === activeIndex ? 'bg-sky-600' : 'bg-slate-200';
   };
 

@@ -6,15 +6,16 @@ import Swal from "sweetalert2";
 const Appointment = () => {
     
 
-    const handleSubmit = (e:FormEvent) =>{
-        e.preventDefault()
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: 'Appointment has been added successfully. Looking forward to meet you!',
-          });
-          e.target.reset();
-    }
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement; // Cast e.target to HTMLFormElement
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: 'Appointment has been added successfully!',
+    });
+    form.reset(); 
+  }
     return (
 
         <Container className="mb-12 py-16">
@@ -46,7 +47,7 @@ const Appointment = () => {
 </div>
   <div className="mb-4">
     <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Additional Message:</label>
-    <textarea id="message" name="message" rows="4" className="w-full border rounded-md py-2 px-3"></textarea>
+    <textarea id="message" name="message" className="w-full border rounded-md py-2 px-3"></textarea>
   </div>
   {/* <button type="submit" className="bg--500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Book Appointment</button> */}
   <Button variant={'default'} type="submit" className="animate-bounce " >Book Appointment</Button>

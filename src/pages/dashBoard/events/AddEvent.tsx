@@ -1,119 +1,3 @@
-// import { Button } from "@/components/ui/button";
-// import Sidebar from "@/components/ui/layouts/Sidebar";
-// import { useMutation } from "@tanstack/react-query";
-// import { FormEvent, useState } from "react";
-// import Swal from 'sweetalert2';
-// const AddEvent = () => {
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     photo: "", 
-//   });
-
-//   const [errors, setErrors] = useState({
-//     name: "",
-//     photo: "", 
-  
-//   }); // Added state for form errors
-//   interface EventData {
-//     name: string;
-//     photo: string;
-//      }
-//   const { mutateAsync } = useMutation({ 
-//     mutationFn: async (data:EventData) => {
-//       return await fetch("https://assignment5-server-roan.vercel.app/addEvent", {
-//         method: "POST",
-//         body: JSON.stringify(data),
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       });
-//     },
-//   });
-
-//   const handleSubmit = async(e: FormEvent) => {
-//     e.preventDefault();
-  
-//     // Validate required fields and display errors if any
-//     let formIsValid = true;
-//     const newErrors:any = {};
-//     if (!formData.name.trim()) {
-//       newErrors.name = "Name is required";
-//       formIsValid = false;
-//     }
-//     if (!formData.photo.trim()) {
-//       newErrors.photo = "Photo URL is required";
-//       formIsValid = false;
-//     }
-    
-//     if (!formIsValid) {
-//       setErrors(newErrors);
-//       return;
-//     }
-  
-    
-//     try {
-//       // Send data with features as an array
-//       await mutateAsync({ ...formData});
-//       setFormData({
-//         name: "",
-//         photo: ""
-//       });
-//       setErrors({
-//         name: "",
-//         photo: ""
-//       })
-//       Swal.fire({
-//         icon: 'success',
-//         title: 'Success!',
-//         text: 'One event has been added successfully.',
-//       });
-//     } catch (error) {
-//       console.error("Error adding service:", error);
-//      }
-//   };
-  
-
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-//     const { name, value } = e.target;
-//     setFormData((prevFormData) => ({
-//       ...prevFormData,
-//       [name]: value,
-//     }));
-//   };
-
-//   return (
-//     <div className="grid grid-cols-12 bg-stone-100">
-//       <Sidebar />
-//       <div className="flex justify-center  mt-5 ml-20 col-span-8 p-5">
-//         <form onSubmit={handleSubmit} className="bg-sky-900 p-10 rounded border border-gray-300">
-//         {errors.name && <span className="text-red-500">{errors.name}</span>} {/* Display name error message */}
-//           <input
-//             type="text"
-//             name="name"
-//             value={formData.name}
-//             className="border-2 rounded m-2 p-2 border-sky-500 w-full"
-//             placeholder="Event Name"
-//             onChange={handleChange}
-//           />
-//            {errors.photo && <span className="text-red-500">{errors.photo}</span>} {/* Display photo error message */}
-        
-//           <input
-//             type="text"
-//             name="photo" // Corrected name attribute
-//             value={formData.photo}
-//             className="border-2 rounded m-2 p-2 border-sky-500 w-full"
-//             placeholder="Photo URL"
-//             onChange={handleChange}
-//           />
-          
-//           <div className="text-center"> {/* Center the button horizontally */}
-//             <Button type="submit">Submit</Button>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
 
 // export default AddEvent;
 import { Button } from "@/components/ui/button";
@@ -149,7 +33,10 @@ const AddEvent = () => {
     e.preventDefault();
   
     let formIsValid = true;
-    const newErrors = {};
+    const newErrors = {
+      name: "",
+      photo:""
+    };
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
       formIsValid = false;
@@ -165,7 +52,7 @@ const AddEvent = () => {
     }
   
     try {
-      await mutateAsync({ ...formData});
+      await mutateAsync();
       setFormData({
         name: "",
         photo: ""

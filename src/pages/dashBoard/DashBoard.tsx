@@ -13,17 +13,7 @@ const DashBoard = () => {
     queryFn: getServices,
   });
   
-  // const getEvents = async () => {
-  //   return await fetch("https://assignment5-server-roan.vercel.app/events").then((res) =>
-  //     res.json()
-  //   );
-  // };
-  // const { eventData } = useQuery({
-  //   queryKey: ["events"],
-  //   queryFn: getEvents,
-  // });
-  // console.log(data);
-  // console.log(eventData);
+  
 
   return (
     <div className="grid grid-cols-12">
@@ -39,7 +29,7 @@ const DashBoard = () => {
               data.map(
                 (
                   service: {
-                    _id: Key | null | undefined;
+                    _id: string  | null | undefined;
                     Photo: string | undefined;
                     name:
                       | string;
@@ -48,8 +38,7 @@ const DashBoard = () => {
                     features: (
                       | string
                     )[];
-                  },
-                  index: number
+                  }
                 ) => (
                   <div
                   key={service._id}

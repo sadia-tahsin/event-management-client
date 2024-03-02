@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useEffect, useRef, useState } from "react";
+import { Key, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import '@/lib/Gallery.css'
 import listIcon from "@/assets/Group 16.png"
